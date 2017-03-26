@@ -1,5 +1,19 @@
 # CafeApp/.travis.yml
 language: csharp
+
+env:
+ - HOME=/home/travis APPDATA=/home/travis LocalAppData=/home/travis # DISABLE_NETCORE=true
+
+sudo: false  # use the new container-based Travis infrastructure
+#sudo: required
+dist: trusty # Ubuntu 14.04
+
+mono:
+  - latest
+
+branches:
+  except:
+    - gh-pages
 script:
   - ./build.sh RunUnitTests
 mono:
