@@ -1,0 +1,6 @@
+C:\Users\Me\Documents\GitProjects\CafeApp\src\CafeApp.Core.Tests\obj\Debug\Cafe.Core.Tests.fsprojResolveAssemblyReference.cache
+C:\Users\Me\Documents\GitProjects\CafeApp\tests\Cafe.Core.Tests.dll
+C:\Users\Me\Documents\GitProjects\CafeApp\tests\Cafe.Core.Tests.pdb
+C:\Users\Me\Documents\GitProjects\CafeApp\tests\Cafe.Core.Tests.XML
+C:\Users\Me\Documents\GitProjects\CafeApp\src\CafeApp.Core.Tests\obj\Debug\Cafe.Core.Tests.dll
+C:\Users\Me\Documents\GitProjects\CafeApp\src\CafeApp.Core.Tests\obj\Debug\Cafe.Core.Tests.pdb
