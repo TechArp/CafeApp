@@ -1,0 +1,4 @@
+# CafeApp/.travis.yml
+language: csharp
+script:
+  - ./build.ps1
