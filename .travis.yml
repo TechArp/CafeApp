@@ -1,4 +1,6 @@
 # CafeApp/.travis.yml
 language: csharp
 script:
-  - ./build.ps1
+  - ./build.sh RunUnitTests
+mono:
+  - latest
