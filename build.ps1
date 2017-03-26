@@ -7,3 +7,5 @@ if ((Test-Path ".\.paket") -eq $False){
 cp "C:\Users\Me\Documents\GitProjects\Paket\bin\*" .\.paket
 
 .paket/paket.bootstrapper.exe
+.paket/paket.exe restore
+.\packages\FAKE\tools\FAKE.exe --fsiargs --RunUnitTests build.fsx
