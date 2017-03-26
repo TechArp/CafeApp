@@ -2,7 +2,6 @@
 ..gitignore.un~
 .fake/
 .gitignore~
-.paket/
 TestResult.xml
 build/
 packages/
