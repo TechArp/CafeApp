@@ -12,8 +12,10 @@ let When command state = (command, state)
 
 let ThenStateShouldBe expectedState (command, state) =
     let actualState = evolve state command
-    fst actualState |> should equal expectedState
-    snd actualState
+    match actualState with 
+    | (state, event) -> 
+        state |> should equal expectedState
+        event
 
 let WithEvents expectedEvents actualEvents =
     actualEvents |> should equal expectedEvents
