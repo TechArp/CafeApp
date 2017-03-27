@@ -6,3 +6,6 @@ TestResult.xml
 build/
 packages/
 tests
+src/CafeApp.Core.Tests/obj/
+src/CafeApp.Core/obj/
+.gitignore.swp
