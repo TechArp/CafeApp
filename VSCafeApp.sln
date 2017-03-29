@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26228.9
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "CafeApp.Core", "src\CafeApp.Core\CafeApp.Core.fsproj", "{E0B98066-CB0B-4F85-9EDD-EFF80A8F7D77}"
+EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Cafe.Core.Tests", "src\CafeApp.Core.Tests\Cafe.Core.Tests.fsproj", "{2FFF9B86-ECAB-4BCF-9CA1-E3C6C12481CC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E0B98066-CB0B-4F85-9EDD-EFF80A8F7D77}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E0B98066-CB0B-4F85-9EDD-EFF80A8F7D77}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E0B98066-CB0B-4F85-9EDD-EFF80A8F7D77}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E0B98066-CB0B-4F85-9EDD-EFF80A8F7D77}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2FFF9B86-ECAB-4BCF-9CA1-E3C6C12481CC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2FFF9B86-ECAB-4BCF-9CA1-E3C6C12481CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2FFF9B86-ECAB-4BCF-9CA1-E3C6C12481CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2FFF9B86-ECAB-4BCF-9CA1-E3C6C12481CC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
