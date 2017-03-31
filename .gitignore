@@ -14,3 +14,4 @@ src/CafeApp.Core/bin/
 .gitattributes
 /VSCafeApp/v15/.suo
 .vs/
+src/CafeApp.Core/bin/

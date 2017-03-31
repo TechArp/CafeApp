@@ -45,6 +45,8 @@
     <Compile Include="Events.fs" />
     <Compile Include="Commands.fs" />
     <Compile Include="States.fs" />
+    <Compile Include="ErrorHandling.fs" />
+    <Compile Include="Errors.fs" />
     <Compile Include="CommandHandlers.fs" />
   </ItemGroup>
   <PropertyGroup>
