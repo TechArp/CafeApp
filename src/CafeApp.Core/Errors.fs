@@ -2,4 +2,6 @@ module Errors
 
 type Error =
     | TabAlreadyOpened
-    | TabNotOpened
+    | CanNotOrderWithClosedTab
+    | CanNotPlaceEmptyOrder
+    | OrderAlreadyPlaced

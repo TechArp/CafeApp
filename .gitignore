@@ -15,3 +15,5 @@ src/CafeApp.Core/bin/
 .vs/
 src/CafeApp.Core/bin/
 **/bin/**/
+src/CafeApp.Core/bin/Debug/CafeApp.Core.XML
+src/CafeApp.Core/bin/Release/CafeApp.Core.XML
