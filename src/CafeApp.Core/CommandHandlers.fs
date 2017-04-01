@@ -9,13 +9,13 @@ open Chessie.ErrorHandling
 open Errors
 
 
-let handleOpenedTab tab = function
+let handleOpenTab tab = function
     | ClosedTab _ -> [TabOpened tab] |> ok
     | _ -> TabAlreadyOpened |> fail
 
 let execute state command =
     match command with
-    | OpenTab tab -> handleOpenedTab tab state
+    | OpenTab tab -> handleOpenTab tab state
     | _ -> failwith "Todo"
 
 let evolve state command =
