@@ -13,5 +13,5 @@ src/CafeApp.Core.Tests/bin/
 src/CafeApp.Core/bin/
 /VSCafeApp/v15/.suo
 .vs/
-src/CafeApp.Core/bin/**
-**/bin/**
+src/CafeApp.Core/bin/**/
+**/bin/**/
