@@ -11,7 +11,6 @@ src/CafeApp.Core/obj/
 .gitignore.swp
 src/CafeApp.Core.Tests/bin/
 src/CafeApp.Core/bin/
-.gitattributes
 /VSCafeApp/v15/.suo
 .vs/
 src/CafeApp.Core/bin/
