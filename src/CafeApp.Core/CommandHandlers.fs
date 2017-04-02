@@ -25,20 +25,19 @@ let handlePlaceOrder order  = function
 
 let (|NonOrderedDrink|_|) order drink =
     match List.exists ((=) drink) order.Drinks with
-    | true      -> Some drink
-    | false     -> None
+    | false      -> Some drink
+    | true     -> None
 
 let handleServeDrink drink tabId = function
     | PlacedOrder order     -> 
         let event = DrinkServed (drink, tabId)
-        match (|NonOrderedDrink|_|) order drink with
-        | Some drink ->
-            [event] |> ok
-        | None -> CanNotServeNonOrderedDrink drink               |> fail
+        match drink with
+        | NonOrderedDrink order _   -> CanNotServeNonOrderedDrink drink  |> fail
+        | _                         -> [event] |> ok 
     | ServedOrder order     -> OrderAlreadyServed                |> fail
     | ClosedTab order       -> CanNotServeWithClosedTab          |> fail
     | OpenedTab order       -> CanNotServeForNonPlacedOrder      |> fail
-    | _                     -> CanNotOrderWithClosedTab          |> fail
+    | _                     -> failwith "TODO"
 
 
 let execute state command =
