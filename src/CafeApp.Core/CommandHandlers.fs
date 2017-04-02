@@ -10,7 +10,7 @@ open Errors
 
 
 let handleOpenTab tab = function
-    | ClosedTab _   -> [TabOpened tab] |> ok
+    | ClosedTab _   -> [TabOpened tab]  |> ok
     | _             -> TabAlreadyOpened |> fail
 
 let handlePlaceOrder order  = function
@@ -20,12 +20,25 @@ let handlePlaceOrder order  = function
         else
             [OrderPlaced order] |> ok
     | ClosedTab _   -> CanNotOrderWithClosedTab |> fail
-    | PlacedOrder _ -> OrderAlreadyPlaced |> fail 
+    | PlacedOrder _ -> OrderAlreadyPlaced       |> fail 
     | _             -> CanNotOrderWithClosedTab |> fail
 
+let (|NonOrderedDrink|_|) order drink =
+    match List.exists ((=) drink) order.Drinks with
+    | true      -> Some drink
+    | false     -> None
+
 let handleServeDrink drink tabId = function
-    | PlacedOrder order     -> [DrinkServed (drink,tabId)]  |> ok
-    | _                     -> CanNotOrderWithClosedTab     |> fail
+    | PlacedOrder order     -> 
+        let event = DrinkServed (drink, tabId)
+        match (|NonOrderedDrink|_|) order drink with
+        | Some drink ->
+            [event] |> ok
+        | None -> CanNotServeNonOrderedDrink drink               |> fail
+    | ServedOrder order     -> OrderAlreadyServed                |> fail
+    | ClosedTab order       -> CanNotServeWithClosedTab          |> fail
+    | OpenedTab order       -> CanNotServeForNonPlacedOrder      |> fail
+    | _                     -> CanNotOrderWithClosedTab          |> fail
 
 
 let execute state command =
