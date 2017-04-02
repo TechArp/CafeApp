@@ -30,3 +30,15 @@ type InProgressOrder = {
     ServedFoods : Food list
     PreparedFoods : Food list
 }
+
+let isServingThisDrinkClosesOrder order drink =
+    List.isEmpty order.Foods && order.Drinks = [drink]
+
+let orderAmount order =
+    let foodAmount =
+        order.Foods
+        |> List.map (fun (Food f) -> f.Price) |> List.sum
+    let drinksAmount =
+        order.Drinks
+        |> List.map (fun (Drink f) -> f.Price) |> List.sum
+    foodAmount + drinksAmount
