@@ -23,5 +23,12 @@ let apply state event =
             ServedFoods = []
             PreparedFoods = []
         } |> OrderInProgress
+    | PlacedOrder order,FoodPrepared (item,_) -> 
+        {
+            PlacedOrder = order
+            ServedDrinks = []
+            ServedFoods = []
+            PreparedFoods = [item]
+        } |> OrderInProgress
     | OrderInProgress ipo, OrderServed (order, _) -> ServedOrder order
     | _ -> state     

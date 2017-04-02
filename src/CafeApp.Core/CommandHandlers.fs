@@ -50,12 +50,17 @@ let handleServeDrink drink tabId = function
     | OpenedTab order       -> CanNotServeForNonPlacedOrder      |> fail
     | _                     -> failwith "TODO"
 
+let handlePrepareFood food tabId = function
+    | PlacedOrder _     -> [FoodPrepared (food,tabId)]  |> ok
+    | _                 -> failwith "TODO"
+
 
 let execute state command =
     match command with
     | OpenTab tab                     -> handleOpenTab tab state
     | PlaceOrder order                -> handlePlaceOrder order state
     | ServeDrink (drink,tabId)        -> handleServeDrink drink tabId state
+    | PrepareFood (food,tabId)        -> handlePrepareFood food tabId state
     | _                               -> failwith "Todo"
 
 let evolve state command =
