@@ -28,6 +28,12 @@ let (|NonOrderedDrink|_|) order drink =
     | false      -> Some drink
     | true     -> None
 
+let (|NonOrderedFood|_|) order food =
+    match List.exists ((=) food) order.Foods with
+    | false         -> Some food
+    | true          -> None
+
+
 let (|ServeDrinkCompletesOrder|_|) order drink =
     match isServingThisDrinkClosesOrder order drink with
     | true         -> Some drink
@@ -43,16 +49,21 @@ let handleServeDrink drink tabId = function
         | NonOrderedDrink order _           -> CanNotServeNonOrderedDrink drink  |> fail
         | ServeDrinkCompletesOrder order _  ->
            let payment = {Tab = order.Tab; Amount = orderAmount order}
-           event :: [OrderServed (order,payment)] |> ok
-        | _                                 -> [event] |> ok 
+           event :: [OrderServed (order,payment)]                                |> ok
+        | _                                 -> [event]                           |> ok 
     | ServedOrder order     -> OrderAlreadyServed                |> fail
     | ClosedTab order       -> CanNotServeWithClosedTab          |> fail
     | OpenedTab order       -> CanNotServeForNonPlacedOrder      |> fail
     | _                     -> failwith "TODO"
 
 let handlePrepareFood food tabId = function
-    | PlacedOrder _     -> [FoodPrepared (food,tabId)]  |> ok
-    | _                 -> failwith "TODO"
+    | PlacedOrder order         -> 
+        match food with
+        | NonOrderedFood order _    -> CanNotPrepareNonOrderedFood food |> fail
+        | _                         -> [FoodPrepared (food,tabId)]      |> ok
+    | ClosedTab order       -> CanNotPrepareWithClosedTab          |> fail
+    | OpenedTab order       -> CanNotPrepareForNonPlacedOrder      |> fail
+    | _                     -> failwith "TODO"
 
 
 let execute state command =
